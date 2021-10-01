@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Ulmod. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Managing checkout order Discount -->
+    <route url="/V1/guest-carts/:cartId/split-discount" method="PUT">
+        <service class="Zehntech\DiscountSplit\Api\GuestOrderDiscountManagementInterface" 
+		          method="saveSplitDiscount"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Managing checkout order Discount -->
+    <route url="/V1/carts/mine/split-discount" method="PUT">
+        <service class="Zehntech\DiscountSplit\Api\OrderDiscountManagementInterface" 
+		         method="saveSplitDiscount"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

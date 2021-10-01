@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="invoice_totals">
+            <block class="Zehntech\SalesOrderView\Block\Adminhtml\Sales\Weight" name="weight"/>
+        </referenceBlock>
+        
+        <!-- removing $ sign from sales_order_view -->
+        <referenceBlock name="invoice_totals">
+            <action method="setTemplate">
+                <argument name="template" translate="true" xsi:type="string">
+                    Zehntech_SalesOrderView::order/totals.phtml
+                </argument>
+            </action>
+        </referenceBlock>
+
+    </body>
+</page>

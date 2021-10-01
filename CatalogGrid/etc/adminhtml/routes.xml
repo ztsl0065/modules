@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * @ Magroma
+ * @category Magroma
+ * @package Magroma_ContactFormDb
+ * @copyright Copyright (c) 2020 Magroma
+ * @version 1.0.0
+ * Author @Magroma
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+ 
+    <router id="admin">
+        <route id="rowedit" frontName="rowedit">
+            <module name="Zehntech_CatalogGrid"/>
+        </route>
+    </router>
+
+</config>

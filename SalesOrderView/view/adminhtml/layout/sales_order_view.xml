@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_items">
+
+            <arguments>
+                <argument name="columns" xsi:type="array">
+                    <item name="weight" xsi:type="string" translate="true">Weight</item>
+                </argument>
+            </arguments>
+
+            <referenceBlock name="default_order_items_renderer">
+                <arguments>
+                    <argument name="columns" xsi:type="array">
+                        <item name="weight" xsi:type="string" translate="true">col-weight</item>
+                    </argument>
+                </arguments>
+            </referenceBlock>
+
+            <!-- display weight to sales_order_view -->
+            <referenceContainer name="order_totals">
+                <block class="Zehntech\SalesOrderView\Block\Adminhtml\Sales\Weight" name="weight"/>
+            </referenceContainer>
+
+            <!-- removing $ sign from sales_order_view -->
+            <referenceBlock name="order_totals">
+                <action method="setTemplate">
+                    <argument name="template" translate="true" xsi:type="string">
+                        Zehntech_SalesOrderView::order/totals.phtml
+                    </argument>
+                </action>
+            </referenceBlock>
+
+        </referenceBlock>
+    </body>
+</page>

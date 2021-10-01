@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- adding weight head to shipment  -->
+        <referenceBlock name="shipment_items">
+            <action method="setTemplate">
+                <argument name="template" translate="true" xsi:type="string">
+                    Zehntech_SalesOrderView::view/items.phtml
+                </argument>
+            </action>
+        </referenceBlock>
+
+        <!-- adding weight to value to shipment  -->
+        <referenceBlock name="default">
+            <action method="setTemplate">
+                <argument name="template" translate="true" xsi:type="string">
+                    Zehntech_SalesOrderView::view/items/renderer/default.phtml
+                </argument>
+            </action>
+        </referenceBlock>
+
+
+        <referenceBlock name="form">
+            <action method="setTemplate">
+                <argument name="template" translate="true" xsi:type="string">
+                    Zehntech_SalesOrderView::view/form.phtml
+                </argument>
+            </action>
+        </referenceBlock>
+
+
+    </body>
+</page>

@@ -1,0 +1,17 @@
+<!-- ko if: isDisplayedDiscounts() -->
+<tr>
+    <td colspan="2" class="discount-list">
+        <table data-bind="foreach: getAllDiscount()">
+            <tr class="totals fee excl" >
+                <th class="mark" scope="row" data-bind="text: description"></th>
+                <td class="amount">
+                    <span class="price" data-bind="text: amount"></span>
+                </td>
+            </tr>       
+        </table> 
+        <form class="form order_split_discount">
+            <input type="hidden" name="split_discount" id="split_discount" data-bind="value: getDiscountData()">
+        </form>
+    </td>
+</tr>
+<!-- /ko -->

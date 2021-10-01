@@ -1,0 +1,18 @@
+<?php $category = $block->getCurrentCategory();?>
+<?php
+	$restock_date  = date("m/d/Y",strtotime($category->getData('notice_restock_date')));
+	$restock_date = date_create($category->getData('notice_restock_date'));
+	$today = date_create(date('m/d/Y'));
+	$diff = date_diff($today,$restock_date);
+	$diff = $diff->format("%R%a") >= 0 ? true : false; 
+ ?>
+<div class="category-notice">
+	<?php if($diff && $category->getData('notice_restock_date_status')): ?>
+	<p style="text-align: center;">
+		<span style="color: #ff0000;"><strong><span style="font-size: x-large;">Next Restock is 7:00 PM EDT on <?= date("m/d/Y",strtotime($category->getData('notice_restock_date'))); ?></span></strong></span>
+	</p>
+	<?php endif ?>
+	<?php
+		echo $category->getData('notice_description');
+	?>
+</div>

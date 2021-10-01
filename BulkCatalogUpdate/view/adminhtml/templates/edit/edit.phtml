@@ -1,0 +1,128 @@
+<?php
+/* var $block Zehntech\BulkCatalogUpdate\Block\Adminhtml\BulkEditBlock*/
+?>
+
+<?php
+$products = $block->getProductCollection();
+?>
+<form method="post" action="<?php echo $block->getUrl('catalog/edit/bulkupdate', []) ?>">
+    <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>"/>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Sku</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Weight</th>
+            <th>Price Per Pound</th>
+            <th>Max Salable Qty</th>
+            <th>Ranch Price</th>
+        </tr>
+        </thead>
+        <?php
+
+        foreach ($products as $product) {
+            ?>
+
+            <tr>
+                <td><?php echo $product->getId(); ?> </td>
+                <input type="hidden" name="id[]" value="<?php echo $product->getId(); ?>"/>
+                <td>
+                    <img src="<?php echo $block->getBaseUrl() . 'pub/media/catalog/product' . $product->getSmallImage(); ?>"
+                         width="100px"/>
+                </td>
+
+
+                <td><input type="text" name="name[]" value="<?php echo $product->getName(); ?>"/></td>
+                <td><input type="text" name="sku[]" value="<?php echo $product->getSku(); ?>" readonly/></td>
+                <td><input type="text" name="qty[]" value="<?php echo $block->getQty($product->getId()); ?>"/></td>
+                <td><input type="text" name="price[]" value="<?php echo number_format($product->getPrice(), 2); ?>"/>
+                </td>
+                <td><input type="text" name="weight[]" value="<?php echo number_format($product->getWeight(), 2); ?>"/>
+                </td>
+                <td><input type="text" name="price-per-pound[]"
+                           value="<?php echo ($product->getPricePerPound()) ? number_format($product->getPricePerPound(), 2) : ''; ?>"/>
+                <td><input type="text" name="max_sale_qty[]"
+                           value="<?php echo $block->getMaxSalableQty($product->getId()); ?>"/>
+                </td>
+                <td><input type="text" name="cost[]" value="<?php echo number_format($product->getCost(), 2); ?>"/></td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
+    <input type="submit" name="submit" value="Update" class="submit-btn-tag"/>
+</form>
+<div class="btn-container">
+    <?php
+    for ($i = 1; $i <= $block->getSize(); $i++) {
+        ?>
+        <a href="<?php echo $block->getUrl('catalog/edit/bulkedit', ['page' => $i]) ?>"
+           class="nav-nav-tag <?php echo $block->getCurrentPageId()==$i ? 'active' : '' ?>"><?php echo $i; ?></a>
+
+        <?php
+    }
+    ?>
+
+</div>
+<style>
+    #container {
+        width: 100%;
+        padding: 50px;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    tr {
+        border-bottom: 1px solid #e3e3e3;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+
+    th {
+        background: #514943;
+        border: 1px solid #fff;
+        padding: 10px;
+        color: #fff;
+    }
+
+    .nav-nav-tag {	
+        padding: 5px 20px;	
+        background: #eb5202;	
+        display: block;	
+        float: left;	
+        margin: 6px;	
+        color: #fff;	
+        text-align: center;	
+    }	
+    .nav-nav-tag.active {	
+        background: #c0c0c0;
+        color: #333 !important;
+        font-weight: bold;
+    }	
+    .nav-nav-tag:hover:not(.active) {	
+        color: #fff !important;	
+    }
+
+    .submit-btn-tag {
+        padding: 12px;
+        background: #eb5202;
+        width: 105px;
+        display: block;
+        float: right;
+        margin: 6px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .btn-container {
+        margin-top: 45px;
+    }
+
+
+</style>

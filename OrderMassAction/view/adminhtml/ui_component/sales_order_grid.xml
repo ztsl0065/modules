@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+            <massaction name="listing_massaction">
+            <action name="statuschange">
+                <settings>
+                    <url path="sales/order/massstatuschange"/>
+                    <type>statuschange</type>
+                    <label translate="true">Status Change</label>
+                    <confirm>
+                        <message translate="true">Are you sure to move to complete the selected items?</message>
+                        <title translate="true">Complete Order</title>
+                    </confirm>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>

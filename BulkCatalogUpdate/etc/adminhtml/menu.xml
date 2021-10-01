@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add id="Zehntech_BulkCatalogUpdate::manager" title="Zehntech" module="Zehntech_BulkCatalogUpdate"
+             sortOrder="10"
+             resource="Zehntech_BulkCatalogUpdate::manager"/>
+
+        <add id="Zehntech_BulkCatalogUpdate::bulk_edit" title="Bulk Edit" module="Zehntech_BulkCatalogUpdate"
+             sortOrder="0"
+             parent="Zehntech_BulkCatalogUpdate::manager"
+             action="catalog/edit/bulkedit/page/1" resource="Zehntech_BulkCatalogUpdate::bulk_edit"/>
+
+    </menu>
+</config>

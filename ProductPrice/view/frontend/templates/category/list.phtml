@@ -1,0 +1,28 @@
+<?php 
+
+$collection = $block->getCategoryCollection();
+
+?>
+<div class="category-list">
+	<ul>
+<?php
+foreach ($collection as $key => $category):
+?>
+
+		<li class="col-md-4 col-sm-6 col-xs-12">
+			<div class="category-item">
+				<div class="category-thumb">
+					<a href="<?=$category->getUrl();?>">
+						<img src="<?= $category->getImageUrl(); ?>" />
+					</a>
+				</div>
+				<div class="category-info">
+					<div class="category-title"><a href="<?=$category->getUrl();?>"><?=$category->getName()?></a></div>
+				</div>
+			</div>
+		</li>
+<?php
+endforeach;
+?>
+	</ul>
+</div>

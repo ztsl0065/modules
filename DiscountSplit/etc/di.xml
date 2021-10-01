@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Ulmod. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Zehntech\DiscountSplit\Api\Data\OrderDiscountInterface" type="Zehntech\DiscountSplit\Model\Data\OrderDiscount"/>
+
+    <preference for="Zehntech\DiscountSplit\Api\OrderDiscountManagementInterface" type="Zehntech\DiscountSplit\Model\OrderDiscountManagement"/>
+    
+    <preference for="Zehntech\DiscountSplit\Api\GuestOrderDiscountManagementInterface" type="Zehntech\DiscountSplit\Model\GuestOrderDiscountManagement"/>
+
+</config>

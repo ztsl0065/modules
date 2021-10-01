@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="sales_quote_collect_totals_after">
+        <observer name="multicoupon_observer" instance="Zehntech\MultiCoupon\Observer\CouponObserver"/>
+    </event>
+
+</config>
